@@ -110,6 +110,8 @@ public class Board {
         }
     }
     private void provjeriVertikalnoZaPijuna(int i, int novoI, int j){
+
+        if(chessBoard[novoI][j]!=null) throw izuzetak;
         int x=0;
         int y=0;
         if(i<novoI){
@@ -130,6 +132,7 @@ public class Board {
 
     private void provjeriDijagonalnoZaPijuna(int novoI, int novoJ){
         if(chessBoard[novoI][novoJ]==null) throw izuzetak;
+
     }
 
     public void move(Class type, ChessPiece.Color color, String position){
@@ -250,7 +253,7 @@ public class Board {
             }
         }
     }
-    position="E8";
+
 
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++) {
