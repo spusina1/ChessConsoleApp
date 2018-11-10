@@ -219,6 +219,23 @@ public class Board {
         chessBoard[koordinataI][koordinataJ]=chessBoard[pamtiI][pamtiJ];
         chessBoard[pamtiI][pamtiJ]=null;
     }
+    void move(String oldPosition, String newPosition){
+        for (int i = 0; i < 8; i++) {
+            String str = Integer.toString(i+1);
+            for (int j = 0; j < 8; j++) {
+                String trazenaPozicija = (char) (j + 65) + str;
+                String trazenaPozicija2 = (char) (j + 97) + str;
+                if (trazenaPozicija.equals(oldPosition) || trazenaPozicija2.equals(oldPosition)) {
+                    if (chessBoard[i][j] == null) throw izuzetak;
+                    else {
+                        this.move(chessBoard[i][j].getClass(), chessBoard[i][j].getColor(), newPosition);
+                    }
+                }
+
+            }
+        }
+    }
+
 
 }
 
