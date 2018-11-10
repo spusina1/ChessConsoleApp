@@ -15,6 +15,7 @@ public class Program {
                 System.out.println("Unesite X za predaju!");
                 System.out.println("White move:");
                 String potez = ulaz.next();
+                potez=potez.toUpperCase();
                 if(potez.equals("X")){ logicka=false; break;}
                 char karakter;
                 if (potez.length() == 3) {
@@ -86,6 +87,7 @@ public class Program {
                 System.out.println("Unesite X za predaju!");
                 System.out.println("Black move:");
                 String potez = ulaz.next();
+                potez=potez.toUpperCase();
                 if(potez.equals("X")){ logicka=false; break;}
                 char karakter;
                 if (potez.length() == 3) {
