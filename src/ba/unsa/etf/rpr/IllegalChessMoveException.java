@@ -3,8 +3,8 @@ import java.util.*;
 
 public class IllegalChessMoveException extends IllegalArgumentException {
     IllegalChessMoveException(){}
-    IllegalChessMoveException(String str){
-        super(str);
+    IllegalChessMoveException(String st){
+        super(st);
     }
 }
 
