@@ -51,8 +51,7 @@ public class Program {
                                 if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
-                            default:
-                                System.out.println("Illegal move!");
+
                         }
                     } catch (IllegalArgumentException i) {
 
@@ -123,8 +122,7 @@ public class Program {
                                 if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
-                            default:
-                                System.out.println("Illegal move!");
+
                         }
                     } catch (IllegalArgumentException i) {
 
