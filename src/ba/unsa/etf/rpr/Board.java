@@ -235,7 +235,78 @@ public class Board {
             }
         }
     }
+    public boolean isCheck(Color color){
 
+        String position="";
+        int koordinataI=0;
+        int koordinataJ=0;
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++){
+                if(chessBoard[i][j]!=null)
+                    if(chessBoard[i][j] instanceof King && chessBoard[i][j].getColor().equals(color)){
+                        position=chessBoard[i][j].getPosition();
+                        koordinataI=i;
+                        koordinataJ=j;
+
+                    }
+            }
+        }
+
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++) {
+                if(chessBoard[i][j]!=null){
+                    if (!chessBoard[i][j].getColor().equals(color)) {
+                        try {
+                            if (chessBoard[i][j] instanceof King) {
+                                King klon =(King)chessBoard[i][j].clone();
+                                klon.move(position);
+                                return true;
+
+                            } else if (chessBoard[i][j] instanceof Queen) {
+                                Queen klon1 = (Queen) chessBoard[i][j].clone();
+                                klon1.move(position);
+                                if (i == koordinataI) provjeriHorizontalno(i, j, koordinataJ);
+                                else if (j == koordinataJ) provjeriVertikalno(i, koordinataI, j);
+                                else provjeriDijagonalni(i, j, koordinataI, koordinataJ);
+                                return true;
+
+                            } else if (chessBoard[i][j] instanceof Knight) {
+                                Knight klon2 = (Knight)chessBoard[i][j].clone();
+                                klon2.move(position);
+                                return true;
+
+                            } else if (chessBoard[i][j] instanceof Rook) {
+                                Rook klon3 = (Rook) chessBoard[i][j].clone();
+                                klon3.move(position);
+                                if (i == koordinataI) provjeriHorizontalno(i, j, koordinataJ);
+                                else if (j == koordinataJ) provjeriVertikalno(i, koordinataI, j);
+                                return  true;
+
+                            } else if (chessBoard[i][j] instanceof Bishop) {
+                                Bishop klon4 = (Bishop) chessBoard[i][j].clone();
+                                klon4.move(position);
+                                provjeriDijagonalni(i, j, koordinataI, koordinataJ);
+                                return  true;
+
+                            } else if (chessBoard[i][j] instanceof Pawn) {
+                                Pawn klon5 = (Pawn) chessBoard[i][j].clone();
+                                klon5.move(position);
+                                if (j == koordinataJ) provjeriVertikalnoZaPijuna(i, koordinataI, j);
+                                else  provjeriDijagonalnoZaPijuna(koordinataI, koordinataJ);
+                                return true;
+                            }
+
+                        } catch (IllegalArgumentException e) {
+
+                        }
+                    }
+
+                }
+            }
+        }
+        return false;
+
+    }
 
 }
 
