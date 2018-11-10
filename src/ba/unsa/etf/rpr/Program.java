@@ -26,23 +26,28 @@ public class Program {
                         switch (karakter) {
                             case 'K':
                                 sahovskaPloca.move(King.class, Color.WHITE, pozicija);
+                                if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
                             case 'Q':
                                 sahovskaPloca.move(Queen.class, Color.WHITE, pozicija);
+                                if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
 
                             case 'R':
                                 sahovskaPloca.move(Rook.class, Color.WHITE, pozicija);
+                                if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
                             case 'N':
                                 sahovskaPloca.move(Knight.class, Color.WHITE, pozicija);
+                                if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
                             case 'B':
                                 sahovskaPloca.move(Bishop.class, Color.WHITE, pozicija);
+                                if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                 pomjerenBijeli = true;
                                 break;
                             default:
@@ -61,6 +66,7 @@ public class Program {
                                 if (sahovskaPloca.chessBoard[i][j].getColor().equals(Color.WHITE)) {
                                     try {
                                         sahovskaPloca.move(sahovskaPloca.chessBoard[i][j].getClass(), Color.WHITE, potez);
+                                        if (sahovskaPloca.isCheck(Color.BLACK)) System.out.println("CHECK!!!");
                                         pomjerenBijeli = true;
                                         break Petlja;
                                     } catch (IllegalArgumentException e) {
@@ -91,23 +97,28 @@ public class Program {
                         switch (karakter) {
                             case 'K':
                                 sahovskaPloca.move(King.class, Color.BLACK, pozicija);
+                                if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
                             case 'Q':
                                 sahovskaPloca.move(Queen.class, Color.BLACK, pozicija);
+                                if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
 
                             case 'R':
                                 sahovskaPloca.move(Rook.class, Color.BLACK, pozicija);
+                                if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
                             case 'N':
                                 sahovskaPloca.move(Knight.class, Color.BLACK, pozicija);
+                                if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
                             case 'B':
                                 sahovskaPloca.move(Bishop.class, Color.BLACK, pozicija);
+                                if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                 pomjerenCrni = true;
                                 break;
                             default:
@@ -126,6 +137,7 @@ public class Program {
                                 if (sahovskaPloca.chessBoard[i][j].getColor().equals(Color.BLACK)) {
                                     try {
                                         sahovskaPloca.move(sahovskaPloca.chessBoard[i][j].getClass(), Color.BLACK, potez);
+                                        if (sahovskaPloca.isCheck(Color.WHITE)) System.out.println("CHECK!!!");
                                         pomjerenCrni= true;
                                         break Petlja;
                                     } catch (IllegalArgumentException e) {
