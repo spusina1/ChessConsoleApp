@@ -137,6 +137,7 @@ public class Board {
 
     public void move(Class type, ChessPiece.Color color, String position){
 
+        //nadjemo koordinate nove pozicije i provjerimo da li se na njoj nalazi figura iste boje
       int koordinataI=0;
       int koordinataJ=0;
         Vanjska2:  for (int i = 0; i < 8; i++) {
@@ -163,6 +164,7 @@ public class Board {
             for(int j=0; j<8; j++) {
                 if(chessBoard[i][j]!=null){
                 if (chessBoard[i][j].getClass() == type && chessBoard[i][j].getColor().equals(color)) {
+                    //nadjemo odgovarajucu figuru za pomijeranje te ispitujemo da li je to pomijeranje moguce
                     pamtiI=i;
                     pamtiJ=j;
                     try {
@@ -215,11 +217,13 @@ public class Board {
             }
         }
         if(!pomjeren) throw izuzetak;
+        //ako je klon pomjeren bez brpoblema mozemo pomjeriti stvarnu figuru
         chessBoard[pamtiI][pamtiJ].move(position);
         chessBoard[koordinataI][koordinataJ]=chessBoard[pamtiI][pamtiJ];
         chessBoard[pamtiI][pamtiJ]=null;
     }
     void move(String oldPosition, String newPosition){
+        //nakon sto nadjemo poziciju na ploci, ispitujemo da li je null, ako nije pozivamo mrvu move metodu, ako jeste baca izuzetak
         for (int i = 0; i < 8; i++) {
             String str = Integer.toString(i+1);
             for (int j = 0; j < 8; j++) {
@@ -237,6 +241,7 @@ public class Board {
     }
     public boolean isCheck(Color color){
 
+        //nadjemo koordinate kralja date boje
         String position="";
         int koordinataI=0;
         int koordinataJ=0;
@@ -251,7 +256,7 @@ public class Board {
                     }
             }
         }
-
+        //prolazimo kroz sahovsku plocu i trazimo prvog igraca suprotne boje za kojeg je potez legalan, ako nadjemo desio se sah
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++) {
                 if(chessBoard[i][j]!=null){
